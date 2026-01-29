@@ -1,0 +1,305 @@
+/* =========================================
+   1. VARIABEL WARNA (PALET PASTEL)
+   Kita simpan kode warna di sini agar mudah diubah.
+   ========================================= */
+:root {
+  /* Warna Utama: Gradasi Ungu ke Kuning */
+  --purple-soft: #e9d5ff;     /* Ungu muda lembut */
+  --purple-deep: #9333ea;     /* Ungu kuat untuk teks/tombol */
+  --yellow-soft: #fef9c3;     /* Kuning muda lembut */
+  --yellow-accent: #facc15;   /* Kuning emas untuk aksen */
+  
+  /* Warna Teks & Latar */
+  --bg-white: #ffffff;        /* Putih bersih */
+  --text-main: #1f2937;       /* Abu-abu gelap (lebih enak dibaca daripada hitam pekat) */
+  --text-light: #6b7280;      /* Abu-abu sedang untuk deskripsi */
+  
+  /* Efek Visual */
+  --shadow: 0 10px 15px -3px rgba(147, 51, 234, 0.1); /* Bayangan ungu tipis */
+  --radius: 16px;             /* Sudut melengkung yang modern */
+}
+
+/* =========================================
+   2. RESET DASAR
+   Membersihkan setelan bawaan browser.
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Agar padding tidak merusak ukuran elemen */
+}
+
+html {
+  scroll-behavior: smooth; /* Gerakan scroll halus saat klik menu */
+}
+
+body {
+  font-family: 'Poppins', sans-serif; /* Font modern yang kamu pilih */
+  color: var(--text-main);
+  background-color: var(--bg-white);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none; /* Hilangkan garis bawah link */
+  color: inherit;
+}
+
+ul {
+  list-style: none; /* Hilangkan titik bullet */
+}
+
+/* =========================================
+   3. NAVIGASI (GLASS EFFECT)
+   Menu transparan seperti kaca.
+   ========================================= */
+header {
+  position: fixed; /* Menu nempel di atas saat scroll */
+  top: 0;
+  width: 100%;
+  padding: 15px 5%;
+  /* Latar belakang putih transparan */
+  background: rgba(255, 255, 255, 0.8);
+  /* Efek blur di belakang menu (Kaca Buram) */
+  backdrop-filter: blur(10px);
+  z-index: 1000; /* Pastikan selalu di lapisan teratas */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+nav {
+  display: flex; /* Mengatur Logo & Menu bersebelahan */
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px; /* Lebar maksimal konten */
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--purple-deep);
+  text-transform: uppercase;
+}
+
+.logo span {
+  color: var(--yellow-accent); /* Aksen kuning pada logo */
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px; /* Jarak antar link menu */
+}
+
+.nav-links a {
+  font-weight: 500;
+  color: var(--text-main);
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--purple-deep); /* Berubah ungu saat disentuh mouse */
+}
+
+/* =========================================
+   4. HERO SECTION (GRADASI WARNA)
+   Bagian paling atas yang mencolok.
+   ========================================= */
+.hero-kelompok {
+  height: 100vh; /* Tinggi memenuhi layar laptop (100%) */
+  /* Membuat gradasi miring dari Ungu ke Kuning */
+  background: linear-gradient(135deg, var(--purple-soft), var(--yellow-soft), #fff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 80px;
+}
+
+.hero-overlay h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  /* Membuat teks berwarna gradasi (Teknik Advanced) */
+  background: linear-gradient(to right, var(--purple-deep), #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+
+.hero-overlay p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 25px;
+}
+
+/* Tombol Cek Anggota */
+.btn-cek {
+  display: inline-block;
+  padding: 12px 35px;
+  background-color: var(--purple-deep);
+  color: var(--bg-white);
+  border-radius: 50px; /* Bentuk kapsul */
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(147, 51, 234, 0.3); /* Bayangan glowing */
+  transition: transform 0.3s;
+}
+
+.btn-cek:hover {
+  transform: translateY(-5px); /* Efek tombol melayang naik */
+  background-color: #7e22ce;   /* Warna ungu lebih gelap saat hover */
+}
+
+/* =========================================
+   5. LAYOUT UMUM (CONTAINER)
+   ========================================= */
+.section-container {
+  padding: 80px 5%; /* Jarak napas yang lega */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Warna background selang-seling */
+.bg-light {
+  background-color: #faf5ff; /* Ungu sangat tipis (hampir putih) */
+}
+
+.bg-white {
+  background-color: var(--bg-white);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--purple-deep);
+  margin-bottom: 50px;
+  position: relative;
+}
+
+/* Garis hias di bawah judul */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--yellow-accent);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* =========================================
+   6. KARTU ANGGOTA (GRID SYSTEM)
+   Bagian agar foto anggota rapi & sejajar.
+   ========================================= */
+.kelompok-grid {
+  display: grid;
+  /* Grid Pintar: Otomatis mengisi kolom, minimal lebar 280px */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.kelompok-card {
+  background: var(--bg-white);
+  padding: 30px 20px;
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(147, 51, 234, 0.05); /* Garis tepi tipis */
+  transition: 0.3s;
+}
+
+.kelompok-card:hover {
+  transform: translateY(-10px); /* Kartu naik saat hover */
+  border-color: var(--purple-deep);
+}
+
+.card-img img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover; /* Agar foto bulat sempurna tidak gepeng */
+  border-radius: 50%;
+  border: 4px solid var(--yellow-soft); /* Bingkai foto kuning muda */
+  margin-bottom: 20px;
+}
+
+.card-info h3 {
+  font-size: 1.1rem;
+  color: var(--text-main);
+  margin-bottom: 5px;
+}
+
+.card-info p {
+  color: var(--purple-deep);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* =========================================
+   7. LAPORAN & VIDEO (CENTERING)
+   ========================================= */
+.content-wrapper, .video-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Posisi tengah */
+  gap: 20px;
+}
+
+.pdf-container, .video-container {
+  width: 100%;
+  max-width: 900px;
+  height: 500px;
+  border-radius: var(--radius);
+  overflow: hidden; /* Agar sudut iframe melengkung */
+  box-shadow: var(--shadow);
+  background: #000;
+}
+
+iframe {
+  border: none;
+}
+
+.content-desc, .video-desc {
+  text-align: center;
+  color: var(--text-light);
+}
+
+/* Tombol Download PDF (Custom) */
+.content-desc .btn-cek {
+  background-color: var(--yellow-accent);
+  color: var(--text-main);
+  margin-top: 15px;
+}
+
+.content-desc .btn-cek:hover {
+  background-color: #eab308;
+  color: #fff;
+}
+
+/* =========================================
+   8. FOOTER
+   ========================================= */
+footer {
+  background: var(--purple-deep);
+  color: var(--bg-white);
+  text-align: center;
+  padding: 25px;
+  margin-top: auto;
+}
+
+/* =========================================
+   9. RESPONSIF (UNTUK HP)
+   ========================================= */
+@media (max-width: 768px) {
+  .hero-overlay h1 {
+    font-size: 2.5rem; /* Judul lebih kecil di HP */
+  }
+  
+  .nav-links {
+    display: none; /* Menu disembunyikan di HP (bisa ditambah JS nanti) */
+  }
+  
+  .pdf-container, .video-container {
+    height: 300px; /* Tinggi video menyesuaikan HP */
+  }
+}
